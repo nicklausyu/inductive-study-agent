@@ -1,0 +1,269 @@
+{
+  "agent": {
+    "name": "Inductive Bible Study Agent",
+    "version": "0.1.0",
+    "description": "An AI agent that guides users through inductive Bible study using observation, interpretation, and application",
+    "model": "claude-3-5-sonnet-20241022",
+    "temperature": 0.7,
+    "max_tokens": 4000
+  },
+  "skills": [
+    {
+      "id": "observation",
+      "name": "Observation Skill",
+      "description": "Performs detailed textual analysis of biblical passages",
+      "enabled": true,
+      "priority": 1,
+      "capabilities": [
+        "identify_key_words",
+        "analyze_structure",
+        "find_patterns",
+        "note_literary_devices",
+        "highlight_questions"
+      ],
+      "parameters": {
+        "depth": "detailed",
+        "include_grammar": true,
+        "identify_repetitions": true
+      }
+    },
+    {
+      "id": "interpretation",
+      "name": "Interpretation Skill",
+      "description": "Explains the meaning and significance of biblical passages",
+      "enabled": true,
+      "priority": 2,
+      "capabilities": [
+        "grammatical_analysis",
+        "theological_significance",
+        "doctrinal_connections",
+        "symbolism_analysis"
+      ],
+      "parameters": {
+        "include_theology": true,
+        "depth": "comprehensive",
+        "acknowledge_debates": true
+      }
+    },
+    {
+      "id": "cultural_context",
+      "name": "Cultural Context Skill",
+      "description": "Provides historical, cultural, and geographical context for biblical passages",
+      "enabled": true,
+      "priority": 3,
+      "capabilities": [
+        "historical_background",
+        "cultural_practices",
+        "geographical_context",
+        "social_customs",
+        "religious_practices"
+      ],
+      "parameters": {
+        "era_focus": "first_century",
+        "include_political": true,
+        "include_social": true
+      }
+    },
+    {
+      "id": "linguistic",
+      "name": "Linguistic Analysis Skill",
+      "description": "Analyzes original language (Greek/Hebrew) nuances and meanings",
+      "enabled": true,
+      "priority": 4,
+      "capabilities": [
+        "greek_analysis",
+        "hebrew_analysis",
+        "etymology",
+        "translation_variations",
+        "word_studies"
+      ],
+      "parameters": {
+        "include_transliteration": true,
+        "explain_etymology": true,
+        "compare_translations": true,
+        "note_nuances": true
+      }
+    },
+    {
+      "id": "cross_reference",
+      "name": "Cross-Reference Skill",
+      "description": "Identifies and connects related biblical passages",
+      "enabled": true,
+      "priority": 5,
+      "capabilities": [
+        "find_related_passages",
+        "identify_themes",
+        "parallel_accounts",
+        "prophecy_fulfillment",
+        "thematic_connections"
+      ],
+      "parameters": {
+        "max_references": 10,
+        "include_old_testament": true,
+        "include_new_testament": true,
+        "relevance_threshold": 0.7
+      }
+    },
+    {
+      "id": "application",
+      "name": "Application Skill",
+      "description": "Guides personal and practical application of biblical passages",
+      "enabled": true,
+      "priority": 6,
+      "capabilities": [
+        "identify_principles",
+        "personal_reflection",
+        "modern_application",
+        "practical_steps",
+        "discussion_questions"
+      ],
+      "parameters": {
+        "include_questions": true,
+        "practical_focus": true,
+        "include_challenges": true,
+        "suggest_actions": true
+      }
+    }
+  ],
+  "study_methodology": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Observation",
+        "question": "What does the text say?",
+        "focus": "Careful reading and analysis of the text itself",
+        "skills": ["observation"]
+      },
+      {
+        "phase": 2,
+        "name": "Interpretation",
+        "question": "What does the text mean?",
+        "focus": "Understanding the intended meaning and significance",
+        "skills": ["interpretation", "cultural_context", "linguistic"]
+      },
+      {
+        "phase": 3,
+        "name": "Application",
+        "question": "What does this mean for me/us?",
+        "focus": "Personal and practical implications",
+        "skills": ["application", "cross_reference"]
+      }
+    ]
+  },
+  "response_format": {
+    "structure": "multi_section",
+    "sections": [
+      {
+        "title": "OBSERVATION",
+        "description": "What does the text say?",
+        "subsections": [
+          "Key Words and Phrases",
+          "Literary Structure and Genre",
+          "Textual Questions and Patterns"
+        ]
+      },
+      {
+        "title": "INTERPRETATION",
+        "description": "What does the text mean?",
+        "subsections": [
+          "Grammatical and Syntactical Analysis",
+          "Theological Significance",
+          "Original Language Insights"
+        ]
+      },
+      {
+        "title": "CULTURAL & HISTORICAL CONTEXT",
+        "description": "Understanding the ancient world",
+        "subsections": [
+          "Historical Background",
+          "Cultural Practices",
+          "Geographical References"
+        ]
+      },
+      {
+        "title": "APPLICATION",
+        "description": "What does this mean for us today?",
+        "subsections": [
+          "Timeless Principles",
+          "Personal Implications",
+          "Practical Steps",
+          "Reflection Questions"
+        ]
+      },
+      {
+        "title": "CROSS-REFERENCES & CONNECTIONS",
+        "description": "Related passages and themes",
+        "subsections": [
+          "Similar Passages",
+          "Thematic Connections",
+          "Related Accounts"
+        ]
+      }
+    ]
+  },
+  "bible_translations": {
+    "primary": "ESV",
+    "supported": [
+      "ESV",
+      "NASB",
+      "NIV",
+      "KJV",
+      "NKJV",
+      "CSB",
+      "NRSV"
+    ]
+  },
+  "content_guidelines": {
+    "scholarly_rigor": true,
+    "acknowledge_debates": true,
+    "respect_faith_perspectives": true,
+    "maintain_accuracy": true,
+    "accessible_language": true,
+    "cite_sources": true,
+    "note_limitations": true
+  },
+  "intent_recognition": {
+    "patterns": [
+      {
+        "intent": "full_study",
+        "triggers": [
+          "do an inductive study",
+          "study.*verse",
+          "analyze.*passage",
+          "teach me about"
+        ],
+        "response_type": "comprehensive"
+      },
+      {
+        "intent": "quick_lookup",
+        "triggers": [
+          "what does.*mean",
+          "explain.*verse",
+          "tell me about",
+          "summarize"
+        ],
+        "response_type": "focused"
+      },
+      {
+        "intent": "context_question",
+        "triggers": [
+          "background of",
+          "context of",
+          "when.*written",
+          "why.*wrote"
+        ],
+        "response_type": "contextual"
+      },
+      {
+        "intent": "application_focus",
+        "triggers": [
+          "how.*apply",
+          "practical.*meaning",
+          "relevant today",
+          "live out"
+        ],
+        "response_type": "applicational"
+      }
+    ]
+  }
+}
