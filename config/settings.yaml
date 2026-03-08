@@ -1,0 +1,72 @@
+application:
+  name: Inductive Bible Study Agent
+  version: 0.1.0
+  description: An AI agent that guides users through inductive Bible study
+  environment: development
+  debug: true
+
+agent:
+  model: claude-3-5-sonnet-20241022
+  temperature: 0.7
+  max_tokens: 4000
+  top_p: 0.9
+  frequency_penalty: 0.0
+  presence_penalty: 0.0
+
+study_settings:
+  default_study_type: comprehensive  # comprehensive, focused, quick
+  include_cross_references: true
+  max_cross_references: 10
+  include_original_languages: true
+  translation_preference: ESV
+  include_application: true
+  depth_level: detailed  # detailed, moderate, brief
+
+output_settings:
+  format: markdown
+  include_section_headers: true
+  use_bullet_points: true
+  include_discussion_questions: true
+  max_response_length: 4000
+  line_breaks_between_sections: true
+
+biblical_data:
+  source: internal
+  include_metadata: true
+  languages: [Hebrew, Greek, English]
+  include_commentary: false  # May be enabled later
+  
+skills_enabled:
+  observation: true
+  interpretation: true
+  cultural_context: true
+  linguistic: true
+  cross_reference: true
+  application: true
+
+content_settings:
+  scholarly_approach: true
+  acknowledge_debates: true
+  cite_specific_verses: true
+  explain_technical_terms: true
+  maintain_biblical_reverence: true
+  balance_accessibility_and_depth: true
+  encourage_personal_study: true
+
+interaction_settings:
+  conversational_tone: true
+  ask_clarifying_questions: true
+  encourage_further_study: true
+  provide_reflection_questions: true
+  suggest_related_passages: true
+  
+logging:
+  enabled: true
+  level: INFO  # DEBUG, INFO, WARNING, ERROR
+  log_file: logs/agent.log
+  
+api_settings:
+  anthropic_api_version: latest
+  timeout_seconds: 30
+  retry_attempts: 3
+  retry_delay_seconds: 1
